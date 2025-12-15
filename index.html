@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Zain Portfolio</title>
 
-  <!-- Modern GitHub-like font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Poppins font for rounded, Crumbl-style look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: #c9d1d9;
-      line-height: 1.6;
       background: #0d1117;
+      line-height: 1.6;
     }
 
     /* NAVBAR */
@@ -24,114 +24,138 @@
       top: 0;
       width: 100%;
       background: #161b22;
-      color: #c9d1d9;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 30px;
+      padding: 15px 40px;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      border-bottom: 1px solid #21262d;
     }
-    .nav .logo { font-weight: 700; font-size: 1.4em; letter-spacing: 1px; }
+    .nav .logo { font-weight: 700; font-size: 1.6em; color:#c9d1d9; }
     .nav .links a {
       color: #c9d1d9;
-      margin-left: 25px;
+      margin-left: 30px;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
-    .nav .links a:hover { color: #58a6ff; }
+    .nav .links a:hover { color: #58a6ff; transform: scale(1.05); }
 
-    /* SECTION STYLING */
-    .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px 20px; box-sizing: border-box; }
+    main { margin-top: 80px; }
+
+    /* SECTION BASE */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity:1; transform: translateY(0); }
+    }
 
     /* HERO */
-    .hero { background: #0d1117; text-align: center; }
-    .hero h1 { font-size: 3em; font-weight: 700; margin-bottom: 20px; color: #c9d1d9; text-shadow: 0 0 10px #58a6ff; }
+    .hero { text-align: center; }
+    .hero h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #c9d1d9;
+    }
     .hero .subtitle { font-size: 1.25em; max-width: 700px; margin-bottom: 30px; color: #8b949e; }
     .btn {
       display: inline-block;
-      padding: 12px 28px;
-      background: #238636;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s;
-      box-shadow: 0 0 10px #238636;
-    }
-    .btn:hover { background: #2ea043; transform: translateY(-2px); box-shadow: 0 0 20px #2ea043; }
-
-    /* FULL-WIDTH CARDS */
-    .full-width-card {
-      background: #21262d;
-      width: 95%; /* wider width for bigger boxes */
-      margin: 20px 0;
-      padding: 35px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #1f6feb, #238636);
+      color: #fff;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2), 0 0 40px rgba(0,150,255,0.2);
-      text-align: center;
-      transition: all 0.3s;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
-    .full-width-card:hover { box-shadow: 0 0 35px rgba(0,255,255,0.4), 0 0 60px rgba(0,150,255,0.3); transform: translateY(-5px); }
-    .full-width-card h3 { margin-bottom: 20px; font-size: 1.7em; color: #58a6ff; text-shadow: 0 0 5px #58a6ff; }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(46,160,67,0.3); }
+
+    /* FULL-WIDTH CARDS (About) */
+    .full-width-card {
+      background: #161b22;
+      width: 95%;
+      max-width: 1000px;
+      margin: 20px 0;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .full-width-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+    .full-width-card h3 { font-size: 1.8em; color: #58a6ff; margin-bottom: 20px; }
     .full-width-card p { font-size: 1.1em; color: #8b949e; }
 
     /* WORK / PROJECTS */
-    #work { background: #0d1117; text-align: center; }
-    #work h2 { font-size: 2.5em; margin-bottom: 30px; color: #c9d1d9; text-shadow: 0 0 10px #58a6ff; }
-    #work p { max-width: 700px; color: #8b949e; margin-bottom: 40px; }
-    .project-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; width: 100%; }
-    .project-card {
-      background: #21262d;
-      flex: 1 1 300px;
-      max-width: 400px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.1);
-      transition: all 0.3s;
-      text-align: center;
+    #work h2, #pricing h2, #contact h2 { font-size: 2.8em; margin-bottom: 30px; color:#c9d1d9; }
+    #work p { max-width: 700px; color:#8b949e; margin-bottom: 40px; text-align:center; }
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      width: 100%;
     }
-    .project-card:hover { box-shadow: 0 0 30px rgba(0,255,255,0.4); transform: translateY(-5px); }
-    .project-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-    .project-card h4 { color: #58a6ff; margin-bottom: 10px; }
-    .project-card p { color: #8b949e; font-size: 0.95em; }
+    .project-card {
+      background:#161b22;
+      flex:1 1 300px;
+      max-width:400px;
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+      text-align:center;
+      transition:all 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-7px) scale(1.02);
+      box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    }
+    .project-card img {
+      width:100%;
+      border-radius:12px;
+      margin-bottom:20px;
+      transition: all 0.4s ease;
+    }
+    .project-card img:hover { transform: scale(1.05); }
 
     /* PRICING */
-    #pricing { background: #161b22; text-align: center; }
-    #pricing h2 { font-size: 2.5em; margin-bottom: 30px; color: #c9d1d9; text-shadow: 0 0 10px #58a6ff; }
-    .pricing-grid { width: 95%; margin: 0 auto; }
+    .pricing-grid { width:95%; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
     .pricing-card {
-      background: #21262d;
-      padding: 35px;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,255,255,0.2), 0 0 50px rgba(0,150,255,0.2);
-      transition: all 0.3s;
-      text-align: center;
+      background:#161b22;
+      padding:40px;
+      border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+      text-align:center;
+      transition:all 0.4s ease;
     }
-    .pricing-card:hover { box-shadow: 0 0 40px rgba(0,255,255,0.4), 0 0 70px rgba(0,150,255,0.3); transform: translateY(-5px); }
-    .pricing-card h3 { color: #58a6ff; margin-bottom: 15px; text-shadow: 0 0 5px #58a6ff; }
-    .pricing-card p { color: #8b949e; font-size: 1em; margin-bottom: 10px; }
-    .pricing-card .price { font-size: 1.8em; font-weight: 700; margin-top: 10px; color: #238636; text-shadow: 0 0 5px #238636; }
+    .pricing-card:hover { transform: translateY(-5px) scale(1.01); box-shadow:0 10px 28px rgba(0,0,0,0.6); }
+    .pricing-card h3 { color:#58a6ff; margin-bottom:15px; font-size:1.6em; }
+    .pricing-card p { color:#8b949e; font-size:1em; margin-bottom:10px; }
+    .pricing-card .price { font-size:1.8em; font-weight:700; margin-top:10px; color:#238636; }
 
     /* CONTACT */
-    #contact { background: #0d1117; text-align: center; }
-    #contact h2 { font-size: 2.5em; margin-bottom: 20px; color: #c9d1d9; text-shadow: 0 0 10px #58a6ff; }
-    #contact p { max-width: 700px; color: #8b949e; margin-bottom: 15px; }
+    #contact p { max-width:700px; color:#8b949e; margin-bottom:15px; text-align:center; }
 
-    main { margin-top: 70px; }
-
-    @media (max-width: 768px) {
+    @media (max-width:768px){
       .project-grid, .pricing-grid { flex-direction: column; align-items: center; }
       .nav { flex-direction: column; align-items: flex-start; }
-      .nav .links { margin-top: 10px; }
+      .nav .links { margin-top:10px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="nav">
     <div class="logo">Zain</div>
     <div class="links">
@@ -147,7 +171,7 @@
     <!-- HERO -->
     <section id="hero" class="section hero">
       <h1>Building clean, modern portfolio websites.</h1>
-      <p class="subtitle">I design and develop professional, fully customized portfolio websites for personal or business projects.</p>
+      <p class="subtitle">I design and develop professional, GitHub-hosted portfolio websites with clean UI, responsive layouts, and easy customization.</p>
       <a class="btn" href="#work">View My Work</a>
     </section>
 
@@ -155,15 +179,15 @@
     <section id="about" class="section">
       <div class="full-width-card">
         <h3>Modern Design</h3>
-        <p>Clean, professional, GitHub-inspired UI for a strong online presence. Every element is carefully crafted for readability, usability, and aesthetic appeal.</p>
+        <p>Minimal, GitHub-inspired UI focused on clarity and usability.</p>
       </div>
       <div class="full-width-card">
-        <h3>Custom Development</h3>
-        <p>Tailored websites built with HTML, CSS, JS, and advanced features. Each project is fully customized to reflect your style, brand, or business identity.</p>
+        <h3>Multi-Page Layout</h3>
+        <p>Real pages for About, Work, Pricing, and Contact — not one long scroll.</p>
       </div>
       <div class="full-width-card">
-        <h3>Fast Delivery</h3>
-        <p>Optimized workflow ensures projects are delivered on time without sacrificing quality. You get a professional, fully functioning website quickly.</p>
+        <h3>Easy Customization</h3>
+        <p>Colors, content, and images can be changed quickly for any client.</p>
       </div>
     </section>
 

@@ -10,15 +10,13 @@
 
   <style>
     /* BASE STYLING */
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #c9d1d9; /* light text for dark background */
+      color: #c9d1d9;
       line-height: 1.6;
-      background: #0d1117; /* GitHub dark background */
+      background: #0d1117;
     }
 
     /* NAVBAR */
@@ -26,7 +24,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: #161b22; /* dark GitHub nav */
+      background: #161b22;
       color: #c9d1d9;
       display: flex;
       justify-content: space-between;
@@ -35,11 +33,7 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
-    .nav .logo {
-      font-weight: 700;
-      font-size: 1.4em;
-      letter-spacing: 1px;
-    }
+    .nav .logo { font-weight: 700; font-size: 1.4em; letter-spacing: 1px; }
     .nav .links a {
       color: #c9d1d9;
       margin-left: 25px;
@@ -47,64 +41,38 @@
       font-weight: 600;
       transition: color 0.3s;
     }
-    .nav .links a:hover {
-      color: #58a6ff; /* GitHub blue accent */
-    }
+    .nav .links a:hover { color: #58a6ff; }
 
     /* SECTION STYLING */
-    .section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 80px 20px;
-      box-sizing: border-box;
-    }
+    .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px 20px; box-sizing: border-box; }
 
     /* HERO */
-    .hero {
-      background: #0d1117; /* dark background */
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3em;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #c9d1d9;
-    }
-    .hero .subtitle {
-      font-size: 1.25em;
-      max-width: 700px;
-      margin-bottom: 30px;
-      color: #8b949e;
-    }
+    .hero { background: #0d1117; text-align: center; }
+    .hero h1 { font-size: 3em; font-weight: 700; margin-bottom: 20px; color: #c9d1d9; }
+    .hero .subtitle { font-size: 1.25em; max-width: 700px; margin-bottom: 30px; color: #8b949e; }
     .btn {
       display: inline-block;
       padding: 12px 28px;
-      background: #238636; /* green accent */
+      background: #238636;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
       transition: background 0.3s, transform 0.2s;
     }
-    .btn:hover {
-      background: #2ea043;
-      transform: translateY(-2px);
-    }
+    .btn:hover { background: #2ea043; transform: translateY(-2px); }
 
-    /* HIGHLIGHTS GRID */
+    /* HIGHLIGHTS GRID / ABOUT */
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      background: #161b22; /* dark section background */
+      background: #161b22;
       padding: 80px 20px;
     }
     .card {
-      background: #21262d; /* darker card */
+      background: #21262d;
       padding: 30px 25px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
@@ -113,55 +81,49 @@
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-    }
-    .card h3 {
-      margin-bottom: 15px;
-      font-size: 1.25em;
-      color: #c9d1d9;
-    }
-    .card p {
-      font-size: 0.95em;
-      color: #8b949e;
-    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.7); }
+    .card h3 { margin-bottom: 15px; font-size: 1.25em; color: #c9d1d9; }
+    .card p { font-size: 0.95em; color: #8b949e; }
 
-    /* OTHER SECTIONS */
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #c9d1d9;
+    /* WORK / PROJECTS */
+    #work { background: #0d1117; text-align: center; }
+    #work h2 { font-size: 2em; margin-bottom: 20px; color: #c9d1d9; }
+    #work p { max-width: 700px; color: #8b949e; margin-bottom: 40px; }
+    .project-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .project-card {
+      background: #21262d; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      flex: 1 1 280px; max-width: 320px; text-align: left; transition: transform 0.3s, box-shadow 0.3s;
     }
-    section p {
-      max-width: 700px;
-      text-align: center;
-      color: #8b949e;
-    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.7); }
+    .project-card h4 { color: #58a6ff; margin-bottom: 10px; }
+    .project-card p { color: #8b949e; font-size: 0.95em; }
 
-    /* CONTACT SECTION */
-    #contact {
-      background: #161b22;
+    /* PRICING */
+    #pricing { background: #161b22; text-align: center; }
+    #pricing h2 { font-size: 2em; margin-bottom: 30px; color: #c9d1d9; }
+    .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .pricing-card {
+      background: #21262d; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      flex: 1 1 250px; max-width: 280px; text-align: center; transition: transform 0.3s, box-shadow 0.3s;
     }
+    .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.7); }
+    .pricing-card h3 { color: #58a6ff; margin-bottom: 15px; }
+    .pricing-card p { color: #8b949e; margin-bottom: 10px; }
+    .pricing-card .price { font-size: 1.5em; font-weight: 700; margin-top: 10px; color: #238636; }
+
+    /* CONTACT */
+    #contact { background: #0d1117; text-align: center; }
+    #contact h2 { font-size: 2em; margin-bottom: 20px; color: #c9d1d9; }
+    #contact p { max-width: 700px; color: #8b949e; margin-bottom: 15px; }
 
     /* NAVBAR OFFSET */
-    main {
-      margin-top: 70px;
-    }
+    main { margin-top: 70px; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav .links {
-        margin-top: 10px;
-      }
+      .grid, .project-grid, .pricing-grid { flex-direction: column; align-items: center; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .nav .links { margin-top: 10px; }
     }
   </style>
 </head>
@@ -195,37 +157,68 @@
     <section id="about" class="section grid">
       <div class="card">
         <h3>Modern Design</h3>
-        <p>Minimal, GitHub-inspired UI focused on clarity and usability.</p>
+        <p>Clean, professional, GitHub-inspired UI for a strong online presence.</p>
       </div>
       <div class="card">
-        <h3>Multi-Page Layout</h3>
-        <p>Real pages for About, Work, Pricing, and Contact — not one long scroll.</p>
+        <h3>Custom Development</h3>
+        <p>Tailored websites built with HTML, CSS, and JS for responsiveness and performance.</p>
       </div>
       <div class="card">
-        <h3>Easy Customization</h3>
-        <p>Colors, content, and images can be changed quickly for any client.</p>
+        <h3>Fast Delivery</h3>
+        <p>Optimized workflow ensures projects are completed on time without compromising quality.</p>
       </div>
     </section>
 
     <!-- WORK / PROJECTS -->
     <section id="work" class="section">
       <h2>My Work</h2>
-      <p>Showcase of recent projects and portfolios goes here.</p>
+      <p>Here are some of my recent projects to showcase my skills and style.</p>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Portfolio Template</h4>
+          <p>A responsive one-page template for showcasing personal or client projects.</p>
+        </div>
+        <div class="project-card">
+          <h4>E-commerce Landing</h4>
+          <p>Sleek landing page with product highlights and smooth scrolling animations.</p>
+        </div>
+        <div class="project-card">
+          <h4>Blog Layout</h4>
+          <p>Minimal, content-focused design for tech or lifestyle blogs with easy navigation.</p>
+        </div>
+      </div>
     </section>
 
     <!-- PRICING -->
     <section id="pricing" class="section">
       <h2>Pricing</h2>
-      <p>Details about packages, rates, or services.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <p>1-page portfolio, basic styling, responsive design</p>
+          <div class="price">$150</div>
+        </div>
+        <div class="pricing-card">
+          <h3>Professional</h3>
+          <p>Multi-page portfolio, custom colors, responsive, SEO-optimized</p>
+          <div class="price">$300</div>
+        </div>
+        <div class="pricing-card">
+          <h3>Premium</h3>
+          <p>Full portfolio + blog + contact form + custom animations</p>
+          <div class="price">$500</div>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>Ways to reach out — email, form, or social links.</p>
+      <p>Reach out to discuss your project, request a quote, or collaborate. I respond within 24 hours.</p>
+      <p>Email: <a href="mailto:youremail@example.com" style="color:#58a6ff;text-decoration:none;">youremail@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank" style="color:#58a6ff;text-decoration:none;">github.com/yourusername</a></p>
     </section>
   </main>
 
 </body>
 </html>
-
